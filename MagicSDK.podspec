@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint Fortmatic.podspec' to ensure this is a
+# Be sure to run `pod lib lint MagicSDK.podspec' to ensure this is a
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
@@ -27,9 +27,9 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/magicLabs/magic-ios-pod.git', :tag => s.version.to_s }
   s.swift_version = '5.0'
   s.ios.deployment_target = '8.0'
-  s.vendored_frameworks = "frameworks/MagicSDK.framework"
+  s.vendored_frameworks = "MagicSDK/MagicSDK.framework"
   
-  s.source_files = 'MagicSDK/Classes/**/*'
+  s.source_files = 'MagicSDK/MagicSDK.framework/Headers/*.{h}'
   
   s.dependency 'Web3', '~> 0.4.2'
   s.dependency 'Web3/ContractABI', '~> 0.4.2'
