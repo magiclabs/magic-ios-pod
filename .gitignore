@@ -2,6 +2,8 @@
 .DS_Store
 
 # Xcode
+.idea/
+*.log
 build/
 *.pbxuser
 !default.pbxuser
@@ -35,3 +37,4 @@ Carthage/Build
 # `pod install` in .travis.yml
 #
 # Pods/
+/.idea/
