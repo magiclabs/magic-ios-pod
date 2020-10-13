@@ -29,8 +29,6 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '8.0'
   s.vendored_frameworks = "MagicSDK/MagicSDK.xcframework"
   
-  s.source_files = 'MagicSDK/MagicSDK.framework/Headers/*.{h}'
-  
   s.dependency 'Web3', '~> 0.4.2'
   s.dependency 'Web3/ContractABI', '~> 0.4.2'
   s.dependency 'Web3/PromiseKit', '~> 0.4.2'
