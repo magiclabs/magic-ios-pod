@@ -3,11 +3,11 @@
 // swift-module-flags: -target i386-apple-ios9.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MagicSDK
 import Foundation
 @_exported import MagicSDK
+import MagicSDK_Web3
 import PromiseKit
 import Rollbar
 import Swift
 import UIKit
-import Web3
 import WebKit
 public struct AnyValue : Swift.Codable {
   public let valueType: MagicSDK.AnyValue.ValueType
@@ -145,7 +145,7 @@ open class BaseModule {
   public init(rpcProvider: MagicSDK.RpcProvider)
   @objc deinit
 }
-public func promiseResolver<T>(_ resolver: PromiseKit.Resolver<T>) -> (Web3Response<T>) -> Swift.Void where T : Swift.Decodable, T : Swift.Encodable
+public func promiseResolver<T>(_ resolver: PromiseKit.Resolver<T>) -> (MagicSDK_Web3Response<T>) -> Swift.Void where T : Swift.Decodable, T : Swift.Encodable
 public struct EIP712TypedData : Swift.Codable, Swift.Equatable {
   public struct `Type` : Swift.Codable, Swift.Equatable {
     public init(from decoder: Swift.Decoder) throws
@@ -167,9 +167,9 @@ public struct EIP712TypedData : Swift.Codable, Swift.Equatable {
   public static func == (a: MagicSDK.EIP712TypedData, b: MagicSDK.EIP712TypedData) -> Swift.Bool
 }
 public struct SignTypedDataCallParams : Swift.Codable, Swift.Equatable {
-  public let account: EthereumAddress
+  public let account: MagicSDK_EthereumAddress
   public let data: MagicSDK.EIP712TypedData
-  public init(account: EthereumAddress, data: MagicSDK.EIP712TypedData)
+  public init(account: MagicSDK_EthereumAddress, data: MagicSDK.EIP712TypedData)
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
   public static func == (a: MagicSDK.SignTypedDataCallParams, b: MagicSDK.SignTypedDataCallParams) -> Swift.Bool
@@ -185,8 +185,8 @@ public struct EIP712TypedDataLegacyFields : Swift.Codable, Swift.Equatable {
 }
 public struct SignTypedDataLegacyCallParams : Swift.Codable, Swift.Equatable {
   public let data: [MagicSDK.EIP712TypedDataLegacyFields]
-  public let account: EthereumAddress
-  public init(data: [MagicSDK.EIP712TypedDataLegacyFields], account: EthereumAddress)
+  public let account: MagicSDK_EthereumAddress
+  public init(data: [MagicSDK.EIP712TypedDataLegacyFields], account: MagicSDK_EthereumAddress)
   public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
   public static func == (a: MagicSDK.SignTypedDataLegacyCallParams, b: MagicSDK.SignTypedDataLegacyCallParams) -> Swift.Bool
@@ -264,7 +264,7 @@ extension JSONValue {
 }
 public func generateRandomId() -> Swift.Int
 public func btoa(jsonString: Swift.String) -> Swift.String
-@_hasMissingDesignatedInitializers public class RpcProvider : MagicSDK.NetworkClient, Web3Provider {
+@_hasMissingDesignatedInitializers public class RpcProvider : MagicSDK.NetworkClient, MagicSDK_Web3Provider {
   public enum ProviderError : Swift.Error {
     case encodingFailed(Swift.Error?)
     case decodingFailed(Swift.Error?)
@@ -272,10 +272,10 @@ public func btoa(jsonString: Swift.String) -> Swift.String
     case missingPayloadCallback(json: Swift.String)
   }
   final public let urlBuilder: MagicSDK.URLBuilder
-  public func send<Params, Result>(request: RPCRequest<Params>, response: @escaping MagicSDK.Web3ResponseCompletion<Result>) where Params : Swift.Decodable, Params : Swift.Encodable, Result : Swift.Decodable, Result : Swift.Encodable
+  public func send<Params, Result>(request: MagicSDK_RPCRequest<Params>, response: @escaping MagicSDK.Web3ResponseCompletion<Result>) where Params : Swift.Decodable, Params : Swift.Encodable, Result : Swift.Decodable, Result : Swift.Encodable
   @objc deinit
 }
-public typealias Web3ResponseCompletion<Result> = (Web3Response<Result>) -> Swift.Void where Result : Swift.Decodable, Result : Swift.Encodable
+public typealias Web3ResponseCompletion<Result> = (MagicSDK_Web3Response<Result>) -> Swift.Void where Result : Swift.Decodable, Result : Swift.Encodable
 public struct URLBuilder {
   public let apiKey: Swift.String
 }
@@ -327,16 +327,16 @@ public struct UserMetadata : MagicSDK.MagicResponse {
   public func encode(to encoder: Swift.Encoder) throws
 }
 extension Web3.Eth {
-  public func getCoinbase(response: @escaping Web3ResponseCompletion<EthereumAddress>)
-  public func sign(from: EthereumAddress, message: EthereumData, response: @escaping Web3ResponseCompletion<EthereumData>)
-  public func signTypedDataV1(data: [MagicSDK.EIP712TypedDataLegacyFields], account: EthereumAddress, response: @escaping MagicSDK.Web3ResponseCompletion<EthereumData>)
-  public func signTypedDataV3(account: EthereumAddress, data: MagicSDK.EIP712TypedData, response: @escaping MagicSDK.Web3ResponseCompletion<EthereumData>)
+  public func getCoinbase(response: @escaping MagicSDK_Web3ResponseCompletion<MagicSDK_EthereumAddress>)
+  public func sign(from: MagicSDK_EthereumAddress, message: MagicSDK_EthereumData, response: @escaping MagicSDK_Web3ResponseCompletion<MagicSDK_EthereumData>)
+  public func signTypedDataV1(data: [MagicSDK.EIP712TypedDataLegacyFields], account: MagicSDK_EthereumAddress, response: @escaping MagicSDK.Web3ResponseCompletion<MagicSDK_EthereumData>)
+  public func signTypedDataV3(account: MagicSDK_EthereumAddress, data: MagicSDK.EIP712TypedData, response: @escaping MagicSDK.Web3ResponseCompletion<MagicSDK_EthereumData>)
 }
 extension Web3.Eth {
-  public func getCoinbase() -> PromiseKit.Promise<EthereumAddress>
-  public func sign(from: EthereumAddress, message: EthereumData) -> PromiseKit.Promise<EthereumData>
-  public func signTypedDataLegacy(account: EthereumAddress, data: [MagicSDK.EIP712TypedDataLegacyFields]) -> PromiseKit.Promise<EthereumData>
-  public func signTypedData(account: EthereumAddress, data: MagicSDK.EIP712TypedData) -> PromiseKit.Promise<EthereumData>
+  public func getCoinbase() -> PromiseKit.Promise<MagicSDK_EthereumAddress>
+  public func sign(from: MagicSDK_EthereumAddress, message: MagicSDK_EthereumData) -> PromiseKit.Promise<MagicSDK_EthereumData>
+  public func signTypedDataLegacy(account: MagicSDK_EthereumAddress, data: [MagicSDK.EIP712TypedDataLegacyFields]) -> PromiseKit.Promise<MagicSDK_EthereumData>
+  public func signTypedData(account: MagicSDK_EthereumAddress, data: MagicSDK.EIP712TypedData) -> PromiseKit.Promise<MagicSDK_EthereumData>
 }
 extension RPCRequest {
   public init(method: Swift.String, params: Params)
