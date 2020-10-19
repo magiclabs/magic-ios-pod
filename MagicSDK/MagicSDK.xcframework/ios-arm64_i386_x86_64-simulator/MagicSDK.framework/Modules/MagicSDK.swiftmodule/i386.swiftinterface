@@ -327,8 +327,8 @@ public struct UserMetadata : MagicSDK.MagicResponse {
   public func encode(to encoder: Swift.Encoder) throws
 }
 extension Web3.Eth {
-  public func getCoinbase(response: @escaping Web3.Web3ResponseCompletion<EthereumAddress>)
-  public func sign(from: EthereumAddress, message: EthereumData, response: @escaping Web3.Web3ResponseCompletion<EthereumData>)
+  public func getCoinbase(response: @escaping Web3ResponseCompletion<EthereumAddress>)
+  public func sign(from: EthereumAddress, message: EthereumData, response: @escaping Web3ResponseCompletion<EthereumData>)
   public func signTypedDataV1(data: [MagicSDK.EIP712TypedDataLegacyFields], account: EthereumAddress, response: @escaping MagicSDK.Web3ResponseCompletion<EthereumData>)
   public func signTypedDataV3(account: EthereumAddress, data: MagicSDK.EIP712TypedData, response: @escaping MagicSDK.Web3ResponseCompletion<EthereumData>)
 }
