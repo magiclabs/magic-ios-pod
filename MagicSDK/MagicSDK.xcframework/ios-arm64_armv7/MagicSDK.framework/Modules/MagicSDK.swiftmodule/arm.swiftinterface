@@ -3,11 +3,11 @@
 // swift-module-flags: -target armv7-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MagicSDK
 import Foundation
 @_exported import MagicSDK
+import MagicSDK_Web3
 import PromiseKit
 import Rollbar
 import Swift
 import UIKit
-import Web3
 import WebKit
 public struct AnyValue : Swift.Codable {
   public let valueType: MagicSDK.AnyValue.ValueType
