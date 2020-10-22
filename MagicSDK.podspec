@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MagicSDK'
-  s.version          = '2.0.0-beta2'
+  s.version          = '2.0.0-beta3'
   s.summary          = 'MagicSDK IOS SDK'
 
 # This description is used to generate tags and improve search results.
@@ -34,4 +34,9 @@ TODO: Add long description of the pod here.
   s.dependency 'MagicSDK-Web3/PromiseKit', '~> 0.4.4'
   s.dependency 'PromiseKit/CorePromise', '~> 6.13'
   s.dependency 'Rollbar', '~> 1.12.8'
+
+  s.pod_target_xcconfig = {
+      'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+    }
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 end
