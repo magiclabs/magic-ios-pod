@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MagicSDK'
-  s.version          = '2.1.1'
+  s.version          = '2.1.2'
   s.summary          = 'MagicSDK IOS SDK'
 
 # This description is used to generate tags and improve search results.
@@ -29,9 +29,9 @@ TODO: Add long description of the pod here.
   s.ios.deployment_target = '9.0'
   s.vendored_frameworks = "MagicSDK/MagicSDK.framework"
   
-  s.dependency 'MagicSDK-Web3', '~> 1.0.0'
-  s.dependency 'MagicSDK-Web3/ContractABI', '~> 1.0.0'
-  s.dependency 'MagicSDK-Web3/PromiseKit', '~> 1.0.0'
+  s.dependency 'MagicSDK-Web3', '~> 1.0.1'
+  s.dependency 'MagicSDK-Web3/ContractABI', '~> 1.0.1'
+  s.dependency 'MagicSDK-Web3/PromiseKit', '~> 1.0.1'
   s.dependency 'PromiseKit/CorePromise', '~> 6.13'
   s.dependency 'Rollbar', '~> 1.12.8'
 
