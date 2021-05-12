@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
 // swift-module-flags: -target armv7-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MagicSDK
 import Foundation
 @_exported import MagicSDK
@@ -23,10 +23,10 @@ public struct AnyValue : Swift.Codable {
   public enum Error : Swift.Error {
     case unsupportedType
     public static func == (a: MagicSDK.AnyValue.Error, b: MagicSDK.AnyValue.Error) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
     public var hashValue: Swift.Int {
       get
     }
-    public func hash(into hasher: inout Swift.Hasher)
   }
   public func encode(to encoder: Swift.Encoder) throws
 }
@@ -110,32 +110,32 @@ extension AnyValueInitializable {
 public enum AnyValueRepresentableError : Swift.Error {
   case notRepresentable
   public static func == (a: MagicSDK.AnyValueRepresentableError, b: MagicSDK.AnyValueRepresentableError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public enum AnyValueInitializableError : Swift.Error {
   case notInitializable
   public static func == (a: MagicSDK.AnyValueInitializableError, b: MagicSDK.AnyValueInitializableError) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
-  public func hash(into hasher: inout Swift.Hasher)
 }
 public struct LoginWithMagicLinkConfiguration : MagicSDK.BaseConfiguration {
   public var showUI: Swift.Bool
   public var email: Swift.String
   public init(showUI: Swift.Bool = true, email: Swift.String)
-  public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 @_inheritsConvenienceInitializers public class AuthModule : MagicSDK.BaseModule {
   public func loginWithMagicLink(_ configuration: MagicSDK.LoginWithMagicLinkConfiguration, response: @escaping MagicSDK.Web3ResponseCompletion<Swift.String>)
   public func loginWithMagicLink(_ configuration: MagicSDK.LoginWithMagicLinkConfiguration) -> PromiseKit.Promise<Swift.String>
   public func loginWithMagicLink(_ configuration: MagicSDK.LoginWithMagicLinkConfiguration, eventLog: Swift.Bool) -> MagicSDK.MagicEventPromise<Swift.String>
-  @objc deinit
   override public init(rpcProvider: MagicSDK.RpcProvider)
+  @objc deinit
 }
 public protocol BaseConfiguration : Swift.Decodable, Swift.Encodable {
 }
@@ -148,23 +148,23 @@ open class BaseModule {
 public func promiseResolver<T>(_ resolver: PromiseKit.Resolver<T>) -> (MagicSDK_Web3.Web3Response<T>) -> Swift.Void where T : Swift.Decodable, T : Swift.Encodable
 public struct EIP712TypedData : Swift.Codable, Swift.Equatable {
   public struct `Type` : Swift.Codable, Swift.Equatable {
-    public init(from decoder: Swift.Decoder) throws
-    public func encode(to encoder: Swift.Encoder) throws
     public static func == (a: MagicSDK.EIP712TypedData.`Type`, b: MagicSDK.EIP712TypedData.`Type`) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
   }
   public struct Domain : Swift.Codable, Swift.Equatable {
-    public init(from decoder: Swift.Decoder) throws
-    public func encode(to encoder: Swift.Encoder) throws
     public static func == (a: MagicSDK.EIP712TypedData.Domain, b: MagicSDK.EIP712TypedData.Domain) -> Swift.Bool
+    public func encode(to encoder: Swift.Encoder) throws
+    public init(from decoder: Swift.Decoder) throws
   }
   public let types: Swift.Dictionary<Swift.String, Swift.Array<MagicSDK.EIP712TypedData.`Type`>>
   public let primaryType: Swift.String
   public let domain: MagicSDK.EIP712TypedData.Domain
   public let message: Swift.Dictionary<Swift.String, MagicSDK.JSONValue>
   public init(primaryType: Swift.String, domain: MagicSDK.EIP712TypedData.Domain, types: Swift.Dictionary<Swift.String, Swift.Array<MagicSDK.EIP712TypedData.`Type`>>, message: Swift.Dictionary<Swift.String, MagicSDK.JSONValue>)
-  public init(from decoder: Swift.Decoder) throws
-  public func encode(to encoder: Swift.Encoder) throws
   public static func == (a: MagicSDK.EIP712TypedData, b: MagicSDK.EIP712TypedData) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 public struct SignTypedDataCallParams : Swift.Codable, Swift.Equatable {
   public let account: MagicSDK_Web3.EthereumAddress
@@ -179,9 +179,9 @@ public struct EIP712TypedDataLegacyFields : Swift.Codable, Swift.Equatable {
   public let name: Swift.String
   public let value: Swift.String
   public init(type: Swift.String, name: Swift.String, value: Swift.String)
-  public init(from decoder: Swift.Decoder) throws
-  public func encode(to encoder: Swift.Encoder) throws
   public static func == (a: MagicSDK.EIP712TypedDataLegacyFields, b: MagicSDK.EIP712TypedDataLegacyFields) -> Swift.Bool
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 public struct SignTypedDataLegacyCallParams : Swift.Codable, Swift.Equatable {
   public let data: [MagicSDK.EIP712TypedDataLegacyFields]
@@ -251,8 +251,13 @@ extension JSONValue {
   convenience public init(apiKey: Swift.String, network: MagicSDK.EthNetwork)
   convenience public init(apiKey: Swift.String, customNode: MagicSDK.CustomNodeConfiguration)
   convenience public init(apiKey: Swift.String)
-  @objc deinit
   @objc override dynamic public init()
+  @objc deinit
+}
+extension Web3Response {
+  public var magicAuthError: MagicSDK.RpcProvider.ProviderError? {
+    get
+  }
 }
 @_hasMissingDesignatedInitializers public class NetworkClient {
   public enum Error : Swift.Error {
@@ -264,6 +269,7 @@ extension JSONValue {
 }
 public func generateRandomId() -> Swift.Int
 public func btoa(jsonString: Swift.String) -> Swift.String
+public func handleRollbarError(_ error: Swift.Error, extraData: Swift.String = "", log: Swift.Bool = true)
 @_hasMissingDesignatedInitializers public class RpcProvider : MagicSDK.NetworkClient, MagicSDK_Web3.Web3Provider {
   public enum ProviderError : Swift.Error {
     case encodingFailed(Swift.Error?)
@@ -285,20 +291,20 @@ public struct CustomNodeConfiguration : Swift.Encodable {
 public class GetIdTokenConfiguration : MagicSDK.BaseConfiguration {
   public init(lifespan: Swift.Int = 900)
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 public class GenerateIdTokenConfiguration : MagicSDK.BaseConfiguration {
   public init(lifespan: Swift.Int = 900, attachment: Swift.String = "none")
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 public class UpdateEmailConfiguration : MagicSDK.BaseConfiguration {
   public init(email: Swift.String, showUI: Swift.Bool = true)
   @objc deinit
-  required public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
 }
 @_inheritsConvenienceInitializers public class UserModule : MagicSDK.BaseModule {
   public func getIdToken(_ configuration: MagicSDK.GetIdTokenConfiguration? = nil, response: @escaping MagicSDK.Web3ResponseCompletion<Swift.String>)
@@ -323,8 +329,8 @@ public struct UserMetadata : MagicSDK.MagicResponse {
   public let issuer: Swift.String?
   public let publicAddress: Swift.String?
   public let email: Swift.String?
-  public init(from decoder: Swift.Decoder) throws
   public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
 }
 extension Web3.Eth {
   public func getCoinbase(response: @escaping MagicSDK_Web3.Web3.Web3ResponseCompletion<MagicSDK_Web3.EthereumAddress>)
@@ -346,11 +352,11 @@ public enum EthNetwork : Swift.String {
   case kovan
   case rinkeby
   case ropsten
+  public init?(rawValue: Swift.String)
   public typealias RawValue = Swift.String
   public var rawValue: Swift.String {
     get
   }
-  public init?(rawValue: Swift.String)
 }
 extension MagicSDK.AnyValue.Error : Swift.Equatable {}
 extension MagicSDK.AnyValue.Error : Swift.Hashable {}
