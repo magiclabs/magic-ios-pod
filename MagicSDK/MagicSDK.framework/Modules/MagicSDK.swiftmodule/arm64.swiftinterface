@@ -134,6 +134,16 @@ public struct LoginWithMagicLinkConfiguration : MagicSDK.BaseConfiguration {
   public func loginWithMagicLink(_ configuration: MagicSDK.LoginWithMagicLinkConfiguration, response: @escaping MagicSDK.Web3ResponseCompletion<Swift.String>)
   public func loginWithMagicLink(_ configuration: MagicSDK.LoginWithMagicLinkConfiguration) -> PromiseKit.Promise<Swift.String>
   public func loginWithMagicLink(_ configuration: MagicSDK.LoginWithMagicLinkConfiguration, eventLog: Swift.Bool) -> MagicSDK.MagicEventPromise<Swift.String>
+  public enum LoginWithMagicLinkEvent : Swift.String {
+    case emailNotDeliverable
+    case emailSent
+    case retry
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
   override public init(rpcProvider: MagicSDK.RpcProvider)
   @objc deinit
 }
@@ -248,9 +258,9 @@ extension JSONValue {
   final public let auth: MagicSDK.AuthModule
   public var rpcProvider: MagicSDK.RpcProvider
   public static var shared: MagicSDK.Magic!
-  convenience public init(apiKey: Swift.String, network: MagicSDK.EthNetwork)
-  convenience public init(apiKey: Swift.String, customNode: MagicSDK.CustomNodeConfiguration)
-  convenience public init(apiKey: Swift.String)
+  convenience public init(apiKey: Swift.String, network: MagicSDK.EthNetwork, locale: Swift.String = Locale.current.identifier)
+  convenience public init(apiKey: Swift.String, customNode: MagicSDK.CustomNodeConfiguration, locale: Swift.String = Locale.current.identifier)
+  convenience public init(apiKey: Swift.String, locale: Swift.String = Locale.current.identifier)
   @objc override dynamic public init()
   @objc deinit
 }
@@ -273,7 +283,7 @@ public func handleRollbarError(_ error: Swift.Error, extraData: Swift.String = "
 @_hasMissingDesignatedInitializers public class RpcProvider : MagicSDK.NetworkClient, MagicSDK_Web3.Web3Provider {
   public enum ProviderError : Swift.Error {
     case encodingFailed(Swift.Error?)
-    case decodingFailed(Swift.Error?)
+    case decodingFailed(json: Swift.String)
     case invalidJsonResponse(json: Swift.String)
     case missingPayloadCallback(json: Swift.String)
   }
@@ -286,6 +296,7 @@ public struct URLBuilder {
   public let apiKey: Swift.String
 }
 public struct CustomNodeConfiguration : Swift.Encodable {
+  public init(rpcUrl: Swift.String, chainId: Swift.Int? = nil)
   public func encode(to encoder: Swift.Encoder) throws
 }
 public class GetIdTokenConfiguration : MagicSDK.BaseConfiguration {
@@ -364,6 +375,9 @@ extension MagicSDK.AnyValueRepresentableError : Swift.Equatable {}
 extension MagicSDK.AnyValueRepresentableError : Swift.Hashable {}
 extension MagicSDK.AnyValueInitializableError : Swift.Equatable {}
 extension MagicSDK.AnyValueInitializableError : Swift.Hashable {}
+extension MagicSDK.AuthModule.LoginWithMagicLinkEvent : Swift.Equatable {}
+extension MagicSDK.AuthModule.LoginWithMagicLinkEvent : Swift.Hashable {}
+extension MagicSDK.AuthModule.LoginWithMagicLinkEvent : Swift.RawRepresentable {}
 extension MagicSDK.EthNetwork : Swift.Equatable {}
 extension MagicSDK.EthNetwork : Swift.Hashable {}
 extension MagicSDK.EthNetwork : Swift.RawRepresentable {}
