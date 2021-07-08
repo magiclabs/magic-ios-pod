@@ -1,0 +1,11 @@
+framework module MagicSDK {
+  umbrella header "MagicSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module MagicSDK.Swift {
+    header "MagicSDK-Swift.h"
+    requires objc
+}
