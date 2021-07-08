@@ -289,7 +289,6 @@ public func handleRollbarError(_ error: Swift.Error, extraData: Swift.String = "
   }
   final public let urlBuilder: MagicSDK.URLBuilder
   public func send<Params, Result>(request: MagicSDK_Web3.RPCRequest<Params>, response: @escaping MagicSDK.Web3ResponseCompletion<Result>) where Params : Swift.Decodable, Params : Swift.Encodable, Result : Swift.Decodable, Result : Swift.Encodable
-  public func oauthSend<Params, Result, OAuthError>(request: MagicSDK_Web3.RPCRequest<Params>, response: @escaping MagicSDK.Web3ResponseCompletion<Result>, handleError: @escaping MagicSDK.Web3ResponseCompletion<OAuthError>) where Params : Swift.Decodable, Params : Swift.Encodable, Result : Swift.Decodable, Result : Swift.Encodable, OAuthError : Swift.Decodable, OAuthError : Swift.Encodable
   @objc deinit
 }
 public typealias Web3ResponseCompletion<Result> = (MagicSDK_Web3.Web3Response<Result>) -> Swift.Void where Result : Swift.Decodable, Result : Swift.Encodable
