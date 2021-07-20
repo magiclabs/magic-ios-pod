@@ -27,7 +27,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/magicLabs/magic-ios-pod.git', :tag => s.version.to_s }
   s.swift_version = '5.0'
   s.ios.deployment_target = '9.0'
-  s.osx.deployment_target = '10.12'
+#   s.osx.deployment_target = '10.12'
 #   s.vendored_frameworks = "MagicSDK/MagicSDK.framework"
   s.vendored_frameworks = "MagicSDK.xcframework"
 
