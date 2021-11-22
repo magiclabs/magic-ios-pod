@@ -6,7 +6,7 @@
 	<dict>
 		<key>Headers/MagicSDK-Swift.h</key>
 		<data>
-		TFWces09C5Vp5jYtDQOGP7eaeAc=
+		RfWoA6SzSom+mmsPIsdXCgPDobo=
 		</data>
 		<key>Headers/MagicSDK-umbrella.h</key>
 		<data>
@@ -14,71 +14,71 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		RuyiXAL4ZH6swQJKyfiChFNuoCs=
+		EtoL6ZEZwzeL+GX9/Pc2ZOFF7eM=
 		</data>
 		<key>Modules/MagicSDK.swiftmodule/Project/i386-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		3DaIGzrCMAoRnoUAvncPx9TBi4w=
+		9hTYMe/Tudj6nqldbAJPLA6RPBI=
 		</data>
 		<key>Modules/MagicSDK.swiftmodule/Project/i386.swiftsourceinfo</key>
 		<data>
-		3DaIGzrCMAoRnoUAvncPx9TBi4w=
+		9hTYMe/Tudj6nqldbAJPLA6RPBI=
 		</data>
 		<key>Modules/MagicSDK.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		sQhj/vKKRzFX8EefglxqYEUejhg=
+		nHtGed6lIOYpgelgmsmFc4DcwmM=
 		</data>
 		<key>Modules/MagicSDK.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<data>
-		sQhj/vKKRzFX8EefglxqYEUejhg=
+		nHtGed6lIOYpgelgmsmFc4DcwmM=
 		</data>
 		<key>Modules/MagicSDK.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
 		<data>
-		+LOfAYFXxg1+OTZ9IcXwIIWwXsc=
+		aJw19Id17gPxZt9u1FhQbGc6D3Q=
 		</data>
 		<key>Modules/MagicSDK.swiftmodule/i386-apple-ios-simulator.swiftinterface</key>
 		<data>
-		QLGVaHdjDkaNLY3oYOV61QcwRN4=
+		/VNPdnbmiKmlBW0vWEeaeAVnBnU=
 		</data>
 		<key>Modules/MagicSDK.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
 		<data>
-		GtbgCZzebYGrs/cgzqoFZOr7Ma8=
+		vhHI4nrTcYwnn5l4cdGkFGEyY3c=
 		</data>
 		<key>Modules/MagicSDK.swiftmodule/i386.swiftdoc</key>
 		<data>
-		+LOfAYFXxg1+OTZ9IcXwIIWwXsc=
+		aJw19Id17gPxZt9u1FhQbGc6D3Q=
 		</data>
 		<key>Modules/MagicSDK.swiftmodule/i386.swiftinterface</key>
 		<data>
-		QLGVaHdjDkaNLY3oYOV61QcwRN4=
+		/VNPdnbmiKmlBW0vWEeaeAVnBnU=
 		</data>
 		<key>Modules/MagicSDK.swiftmodule/i386.swiftmodule</key>
 		<data>
-		GtbgCZzebYGrs/cgzqoFZOr7Ma8=
+		vhHI4nrTcYwnn5l4cdGkFGEyY3c=
 		</data>
 		<key>Modules/MagicSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
-		CF7JzDp+Uo+ow4NuIhSAwVI/Fs4=
+		5/m0JXOgOP+BcjTdG8ueA2m3TII=
 		</data>
 		<key>Modules/MagicSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		veCpPnjsPyc2mSYylXrc8fL+eTw=
+		Ogs3rX4bfNaGCTY2sQ6n0WcGHyg=
 		</data>
 		<key>Modules/MagicSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		UlvfHXXbBnZPKBGcnVR7Dku3XvE=
+		gmi9HgggOZiyBvGLiDMos6PHL+8=
 		</data>
 		<key>Modules/MagicSDK.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		CF7JzDp+Uo+ow4NuIhSAwVI/Fs4=
+		5/m0JXOgOP+BcjTdG8ueA2m3TII=
 		</data>
 		<key>Modules/MagicSDK.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		veCpPnjsPyc2mSYylXrc8fL+eTw=
+		Ogs3rX4bfNaGCTY2sQ6n0WcGHyg=
 		</data>
 		<key>Modules/MagicSDK.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		UlvfHXXbBnZPKBGcnVR7Dku3XvE=
+		gmi9HgggOZiyBvGLiDMos6PHL+8=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -91,11 +91,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			TFWces09C5Vp5jYtDQOGP7eaeAc=
+			RfWoA6SzSom+mmsPIsdXCgPDobo=
 			</data>
 			<key>hash2</key>
 			<data>
-			BzA/+swq1trLRlfiu+p7C/JYIEboL5PA6m4F0I7swO0=
+			TXaVr40tdrZ3j/4kXzpaYLpPSoVdnouSWs+pZuyAP0A=
 			</data>
 		</dict>
 		<key>Headers/MagicSDK-umbrella.h</key>
@@ -113,176 +113,176 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			3DaIGzrCMAoRnoUAvncPx9TBi4w=
+			9hTYMe/Tudj6nqldbAJPLA6RPBI=
 			</data>
 			<key>hash2</key>
 			<data>
-			EiLC660j5qDXkueQE2f1XgcvA+lEnBmKlUiWc4PbT8g=
+			PfMgYJ4Vaw6UHV1wGvQiiiSnHO95psvRmDpRIfxXCUY=
 			</data>
 		</dict>
 		<key>Modules/MagicSDK.swiftmodule/Project/i386.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3DaIGzrCMAoRnoUAvncPx9TBi4w=
+			9hTYMe/Tudj6nqldbAJPLA6RPBI=
 			</data>
 			<key>hash2</key>
 			<data>
-			EiLC660j5qDXkueQE2f1XgcvA+lEnBmKlUiWc4PbT8g=
+			PfMgYJ4Vaw6UHV1wGvQiiiSnHO95psvRmDpRIfxXCUY=
 			</data>
 		</dict>
 		<key>Modules/MagicSDK.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			sQhj/vKKRzFX8EefglxqYEUejhg=
+			nHtGed6lIOYpgelgmsmFc4DcwmM=
 			</data>
 			<key>hash2</key>
 			<data>
-			juVERvzrd5bdZKcbVZIizXjqvIwfLBANVBbwEIk+6Y8=
+			x5A1NnIZSugFHYlKCNZp/Gw666VlP24EZBvVd98BnZU=
 			</data>
 		</dict>
 		<key>Modules/MagicSDK.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			sQhj/vKKRzFX8EefglxqYEUejhg=
+			nHtGed6lIOYpgelgmsmFc4DcwmM=
 			</data>
 			<key>hash2</key>
 			<data>
-			juVERvzrd5bdZKcbVZIizXjqvIwfLBANVBbwEIk+6Y8=
+			x5A1NnIZSugFHYlKCNZp/Gw666VlP24EZBvVd98BnZU=
 			</data>
 		</dict>
 		<key>Modules/MagicSDK.swiftmodule/i386-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+LOfAYFXxg1+OTZ9IcXwIIWwXsc=
+			aJw19Id17gPxZt9u1FhQbGc6D3Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			2slcCRK5YNKQlOnCddpZ9cQjpQNyVi3Nex8oWHzSWiU=
+			11b5HMAIH0PbxqS8jEPMSf4z0276HntTba2jHctSOKI=
 			</data>
 		</dict>
 		<key>Modules/MagicSDK.swiftmodule/i386-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			QLGVaHdjDkaNLY3oYOV61QcwRN4=
+			/VNPdnbmiKmlBW0vWEeaeAVnBnU=
 			</data>
 			<key>hash2</key>
 			<data>
-			20x2vquTXemE/y+ZegoyJvLFh3CpkpfE8h8BfyXa628=
+			yoFwbHUtpu3Z9oIBVHIhMZUGg/Ry0ie+zAx+EzBFftQ=
 			</data>
 		</dict>
 		<key>Modules/MagicSDK.swiftmodule/i386-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GtbgCZzebYGrs/cgzqoFZOr7Ma8=
+			vhHI4nrTcYwnn5l4cdGkFGEyY3c=
 			</data>
 			<key>hash2</key>
 			<data>
-			iQTqCiKVyiNyVBlLOEdRP47UoUsqvAX9s39v9noshGY=
+			Qwy9KklH8o73Ztuq6CLhj95Z8o3UNgHC54CMIbut1BE=
 			</data>
 		</dict>
 		<key>Modules/MagicSDK.swiftmodule/i386.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+LOfAYFXxg1+OTZ9IcXwIIWwXsc=
+			aJw19Id17gPxZt9u1FhQbGc6D3Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			2slcCRK5YNKQlOnCddpZ9cQjpQNyVi3Nex8oWHzSWiU=
+			11b5HMAIH0PbxqS8jEPMSf4z0276HntTba2jHctSOKI=
 			</data>
 		</dict>
 		<key>Modules/MagicSDK.swiftmodule/i386.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			QLGVaHdjDkaNLY3oYOV61QcwRN4=
+			/VNPdnbmiKmlBW0vWEeaeAVnBnU=
 			</data>
 			<key>hash2</key>
 			<data>
-			20x2vquTXemE/y+ZegoyJvLFh3CpkpfE8h8BfyXa628=
+			yoFwbHUtpu3Z9oIBVHIhMZUGg/Ry0ie+zAx+EzBFftQ=
 			</data>
 		</dict>
 		<key>Modules/MagicSDK.swiftmodule/i386.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GtbgCZzebYGrs/cgzqoFZOr7Ma8=
+			vhHI4nrTcYwnn5l4cdGkFGEyY3c=
 			</data>
 			<key>hash2</key>
 			<data>
-			iQTqCiKVyiNyVBlLOEdRP47UoUsqvAX9s39v9noshGY=
+			Qwy9KklH8o73Ztuq6CLhj95Z8o3UNgHC54CMIbut1BE=
 			</data>
 		</dict>
 		<key>Modules/MagicSDK.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			CF7JzDp+Uo+ow4NuIhSAwVI/Fs4=
+			5/m0JXOgOP+BcjTdG8ueA2m3TII=
 			</data>
 			<key>hash2</key>
 			<data>
-			Fknw611ZdGOdgck76ylcoaWZrc/LJeFF4bOi0R9jdR4=
+			yDXDWV5yUuup6e7zr8xD97y5V/Sz+8PD5iCWznLzMRA=
 			</data>
 		</dict>
 		<key>Modules/MagicSDK.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			veCpPnjsPyc2mSYylXrc8fL+eTw=
+			Ogs3rX4bfNaGCTY2sQ6n0WcGHyg=
 			</data>
 			<key>hash2</key>
 			<data>
-			axLgJwFKEImRb2/wMgn/Y+u3ByN+JUGNhSI3U9dZsOI=
+			F2EOclg+u7cR1Fs/SVEt8YSXbggn0AvehBMDaEp8u5U=
 			</data>
 		</dict>
 		<key>Modules/MagicSDK.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UlvfHXXbBnZPKBGcnVR7Dku3XvE=
+			gmi9HgggOZiyBvGLiDMos6PHL+8=
 			</data>
 			<key>hash2</key>
 			<data>
-			4pI8JZFL64U0zoerWIogLpNPOjWGdsNsuNt7p5GVEj4=
+			D5ZWiTE0SLlLNgZYmX2JPEcyDmLQGswg+iC1nc2+L7A=
 			</data>
 		</dict>
 		<key>Modules/MagicSDK.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			CF7JzDp+Uo+ow4NuIhSAwVI/Fs4=
+			5/m0JXOgOP+BcjTdG8ueA2m3TII=
 			</data>
 			<key>hash2</key>
 			<data>
-			Fknw611ZdGOdgck76ylcoaWZrc/LJeFF4bOi0R9jdR4=
+			yDXDWV5yUuup6e7zr8xD97y5V/Sz+8PD5iCWznLzMRA=
 			</data>
 		</dict>
 		<key>Modules/MagicSDK.swiftmodule/x86_64.swiftinterface</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			veCpPnjsPyc2mSYylXrc8fL+eTw=
+			Ogs3rX4bfNaGCTY2sQ6n0WcGHyg=
 			</data>
 			<key>hash2</key>
 			<data>
-			axLgJwFKEImRb2/wMgn/Y+u3ByN+JUGNhSI3U9dZsOI=
+			F2EOclg+u7cR1Fs/SVEt8YSXbggn0AvehBMDaEp8u5U=
 			</data>
 		</dict>
 		<key>Modules/MagicSDK.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UlvfHXXbBnZPKBGcnVR7Dku3XvE=
+			gmi9HgggOZiyBvGLiDMos6PHL+8=
 			</data>
 			<key>hash2</key>
 			<data>
-			4pI8JZFL64U0zoerWIogLpNPOjWGdsNsuNt7p5GVEj4=
+			D5ZWiTE0SLlLNgZYmX2JPEcyDmLQGswg+iC1nc2+L7A=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

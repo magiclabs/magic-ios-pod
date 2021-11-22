@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MagicSDK'
-  s.version          = '2.3.1'
+  s.version          = '2.4.0'
   s.summary          = 'MagicSDK IOS SDK'
 
 # This description is used to generate tags and improve search results.
