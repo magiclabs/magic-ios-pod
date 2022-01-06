@@ -7,7 +7,7 @@
 
 ## Document and tutorial
 
-Please visit https://docs.magic.link/client-sdk/ios
+Please visit [Tutorial](https://magic.link/docs/login-methods/email/integration/ios) & [API Reference](https://magic.link/docs/api-reference/client-side-sdks/ios) for more detail
 
 ## Installation
 
@@ -15,7 +15,21 @@ MagicSDK is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'MagicSDK'
+target 'TARGET_NAME' do
+  use_frameworks!
+
+  pod 'MagicSDK'
+
+  # Required for XCFramework
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+      end
+    end
+  end
+
+end
 ```
 
 ## Author
