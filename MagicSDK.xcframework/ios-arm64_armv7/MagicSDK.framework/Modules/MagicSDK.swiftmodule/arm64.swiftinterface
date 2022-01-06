@@ -1,5 +1,5 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.4 (swiftlang-1205.0.26.9 clang-1205.0.19.55)
+// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
 // swift-module-flags: -target arm64-apple-ios9.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MagicSDK
 import Foundation
 @_exported import MagicSDK
@@ -9,6 +9,7 @@ import Rollbar
 import Swift
 import UIKit
 import WebKit
+import _Concurrency
 public struct AnyValue : Swift.Codable {
   public let valueType: MagicSDK.AnyValue.ValueType
   public enum ValueType {
@@ -30,32 +31,32 @@ public struct AnyValue : Swift.Codable {
   }
   public func encode(to encoder: Swift.Encoder) throws
 }
-extension AnyValue : Swift.ExpressibleByStringLiteral {
+extension MagicSDK.AnyValue : Swift.ExpressibleByStringLiteral {
   public typealias StringLiteralType = Swift.String
   public init(stringLiteral value: MagicSDK.AnyValue.StringLiteralType)
   public typealias ExtendedGraphemeClusterLiteralType = MagicSDK.AnyValue.StringLiteralType
   public typealias UnicodeScalarLiteralType = MagicSDK.AnyValue.StringLiteralType
 }
-extension AnyValue : Swift.ExpressibleByIntegerLiteral {
+extension MagicSDK.AnyValue : Swift.ExpressibleByIntegerLiteral {
   public typealias IntegerLiteralType = Swift.Int
   public init(integerLiteral value: MagicSDK.AnyValue.IntegerLiteralType)
 }
-extension AnyValue : Swift.ExpressibleByBooleanLiteral {
+extension MagicSDK.AnyValue : Swift.ExpressibleByBooleanLiteral {
   public typealias BooleanLiteralType = Swift.Bool
   public init(booleanLiteral value: MagicSDK.AnyValue.BooleanLiteralType)
 }
-extension AnyValue : Swift.ExpressibleByArrayLiteral {
+extension MagicSDK.AnyValue : Swift.ExpressibleByArrayLiteral {
   public typealias ArrayLiteralElement = MagicSDK.AnyValueRepresentable
   public init(array: [MagicSDK.AnyValueRepresentable])
   public init(arrayLiteral elements: MagicSDK.AnyValue.ArrayLiteralElement...)
 }
-extension AnyValue {
+extension MagicSDK.AnyValue {
   public static func string(_ string: Swift.String) -> MagicSDK.AnyValue
   public static func int(_ int: Swift.Int) -> MagicSDK.AnyValue
   public static func bool(_ bool: Swift.Bool) -> MagicSDK.AnyValue
   public static func array(_ array: [MagicSDK.AnyValueRepresentable]) -> MagicSDK.AnyValue
 }
-extension AnyValue {
+extension MagicSDK.AnyValue {
   public var string: Swift.String? {
     get
   }
@@ -69,23 +70,23 @@ extension AnyValue {
     get
   }
 }
-extension AnyValue : MagicSDK.AnyValueConvertible {
+extension MagicSDK.AnyValue : MagicSDK.AnyValueConvertible {
   public init(anyValue: MagicSDK.AnyValue)
   public func anyValue() -> MagicSDK.AnyValue
 }
-extension AnyValue.ValueType : Swift.Equatable {
+extension MagicSDK.AnyValue.ValueType : Swift.Equatable {
   public static func == (lhs: MagicSDK.AnyValue.ValueType, rhs: MagicSDK.AnyValue.ValueType) -> Swift.Bool
 }
-extension AnyValue : Swift.Equatable {
+extension MagicSDK.AnyValue : Swift.Equatable {
   public static func == (lhs: MagicSDK.AnyValue, rhs: MagicSDK.AnyValue) -> Swift.Bool
 }
-extension AnyValue.ValueType : Swift.Hashable {
+extension MagicSDK.AnyValue.ValueType : Swift.Hashable {
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
   }
 }
-extension AnyValue : Swift.Hashable {
+extension MagicSDK.AnyValue : Swift.Hashable {
   public func hash(into hasher: inout Swift.Hasher)
   public var hashValue: Swift.Int {
     get
@@ -98,13 +99,13 @@ public protocol AnyValueInitializable : Swift.Decodable {
   init(anyValue: MagicSDK.AnyValue) throws
 }
 public typealias AnyValueConvertible = MagicSDK.AnyValueInitializable & MagicSDK.AnyValueRepresentable
-extension AnyValueInitializable {
+extension MagicSDK.AnyValueInitializable {
   public init(anyValue: MagicSDK.AnyValueRepresentable) throws
 }
-extension AnyValueRepresentable {
+extension MagicSDK.AnyValueRepresentable {
   public func encode(to encoder: Swift.Encoder) throws
 }
-extension AnyValueInitializable {
+extension MagicSDK.AnyValueInitializable {
   public init(from decoder: Swift.Decoder) throws
 }
 public enum AnyValueRepresentableError : Swift.Error {
@@ -130,10 +131,18 @@ public struct LoginWithMagicLinkConfiguration : MagicSDK.BaseConfiguration {
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
+public struct LoginWithSmsConfiguration : MagicSDK.BaseConfiguration {
+  public var phoneNumber: Swift.String
+  public init(phoneNumber: Swift.String)
+  public func encode(to encoder: Swift.Encoder) throws
+  public init(from decoder: Swift.Decoder) throws
+}
 @_inheritsConvenienceInitializers public class AuthModule : MagicSDK.BaseModule {
   public func loginWithMagicLink(_ configuration: MagicSDK.LoginWithMagicLinkConfiguration, response: @escaping MagicSDK.Web3ResponseCompletion<Swift.String>)
   public func loginWithMagicLink(_ configuration: MagicSDK.LoginWithMagicLinkConfiguration) -> PromiseKit.Promise<Swift.String>
   public func loginWithMagicLink(_ configuration: MagicSDK.LoginWithMagicLinkConfiguration, eventLog: Swift.Bool) -> MagicSDK.MagicEventPromise<Swift.String>
+  public func loginWithSMS(_ configuration: MagicSDK.LoginWithSmsConfiguration, response: @escaping MagicSDK.Web3ResponseCompletion<Swift.String>)
+  public func loginWithSMS(_ configuration: MagicSDK.LoginWithSmsConfiguration) -> PromiseKit.Promise<Swift.String>
   public enum LoginWithMagicLinkEvent : Swift.String {
     case emailNotDeliverable
     case emailSent
@@ -155,7 +164,7 @@ open class BaseModule {
   public init(rpcProvider: MagicSDK.RpcProvider)
   @objc deinit
 }
-public func promiseResolver<T>(_ resolver: PromiseKit.Resolver<T>) -> (MagicSDK_Web3.Web3Response<T>) -> Swift.Void where T : Swift.Decodable, T : Swift.Encodable
+public func promiseResolver<T>(_ resolver: PromiseKit.Resolver<T>) -> (_ result: MagicSDK_Web3.Web3Response<T>) -> Swift.Void where T : Swift.Decodable, T : Swift.Encodable
 public struct EIP712TypedData : Swift.Codable, Swift.Equatable {
   public struct `Type` : Swift.Codable, Swift.Equatable {
     public static func == (a: MagicSDK.EIP712TypedData.`Type`, b: MagicSDK.EIP712TypedData.`Type`) -> Swift.Bool
@@ -218,16 +227,16 @@ public enum JSONValue : Swift.Equatable {
   case object(Swift.Dictionary<Swift.String, MagicSDK.JSONValue>)
   public static func == (a: MagicSDK.JSONValue, b: MagicSDK.JSONValue) -> Swift.Bool
 }
-extension JSONValue : Swift.Codable {
+extension MagicSDK.JSONValue : Swift.Codable {
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
-extension JSONValue : Swift.CustomDebugStringConvertible {
+extension MagicSDK.JSONValue : Swift.CustomDebugStringConvertible {
   public var debugDescription: Swift.String {
     get
   }
 }
-extension JSONValue {
+extension MagicSDK.JSONValue {
   public var string: Swift.String? {
     get
   }
@@ -261,10 +270,9 @@ extension JSONValue {
   convenience public init(apiKey: Swift.String, network: MagicSDK.EthNetwork, locale: Swift.String = Locale.current.identifier)
   convenience public init(apiKey: Swift.String, customNode: MagicSDK.CustomNodeConfiguration, locale: Swift.String = Locale.current.identifier)
   convenience public init(apiKey: Swift.String, locale: Swift.String = Locale.current.identifier)
-  @objc override dynamic public init()
   @objc deinit
 }
-extension Web3Response {
+extension MagicSDK_Web3.Web3Response {
   public var magicAuthError: MagicSDK.RpcProvider.ProviderError? {
     get
   }
@@ -291,7 +299,7 @@ public func handleRollbarError(_ error: Swift.Error, extraData: Swift.String = "
   public func send<Params, Result>(request: MagicSDK_Web3.RPCRequest<Params>, response: @escaping MagicSDK.Web3ResponseCompletion<Result>) where Params : Swift.Decodable, Params : Swift.Encodable, Result : Swift.Decodable, Result : Swift.Encodable
   @objc deinit
 }
-public typealias Web3ResponseCompletion<Result> = (MagicSDK_Web3.Web3Response<Result>) -> Swift.Void where Result : Swift.Decodable, Result : Swift.Encodable
+public typealias Web3ResponseCompletion<Result> = (_ resp: MagicSDK_Web3.Web3Response<Result>) -> Swift.Void where Result : Swift.Decodable, Result : Swift.Encodable
 public struct URLBuilder {
   public let apiKey: Swift.String
 }
@@ -343,19 +351,19 @@ public struct UserMetadata : MagicSDK.MagicResponse {
   public func encode(to encoder: Swift.Encoder) throws
   public init(from decoder: Swift.Decoder) throws
 }
-extension Web3.Eth {
+extension MagicSDK_Web3.Web3.Eth {
   public func getCoinbase(response: @escaping MagicSDK_Web3.Web3.Web3ResponseCompletion<MagicSDK_Web3.EthereumAddress>)
   public func sign(from: MagicSDK_Web3.EthereumAddress, message: MagicSDK_Web3.EthereumData, response: @escaping MagicSDK_Web3.Web3.Web3ResponseCompletion<MagicSDK_Web3.EthereumData>)
   public func signTypedDataV1(data: [MagicSDK.EIP712TypedDataLegacyFields], account: MagicSDK_Web3.EthereumAddress, response: @escaping MagicSDK.Web3ResponseCompletion<MagicSDK_Web3.EthereumData>)
   public func signTypedDataV3(account: MagicSDK_Web3.EthereumAddress, data: MagicSDK.EIP712TypedData, response: @escaping MagicSDK.Web3ResponseCompletion<MagicSDK_Web3.EthereumData>)
 }
-extension Web3.Eth {
+extension MagicSDK_Web3.Web3.Eth {
   public func getCoinbase() -> PromiseKit.Promise<MagicSDK_Web3.EthereumAddress>
   public func sign(from: MagicSDK_Web3.EthereumAddress, message: MagicSDK_Web3.EthereumData) -> PromiseKit.Promise<MagicSDK_Web3.EthereumData>
   public func signTypedDataLegacy(account: MagicSDK_Web3.EthereumAddress, data: [MagicSDK.EIP712TypedDataLegacyFields]) -> PromiseKit.Promise<MagicSDK_Web3.EthereumData>
   public func signTypedData(account: MagicSDK_Web3.EthereumAddress, data: MagicSDK.EIP712TypedData) -> PromiseKit.Promise<MagicSDK_Web3.EthereumData>
 }
-extension RPCRequest {
+extension MagicSDK_Web3.RPCRequest {
   public init(method: Swift.String, params: Params)
 }
 public enum EthNetwork : Swift.String {
