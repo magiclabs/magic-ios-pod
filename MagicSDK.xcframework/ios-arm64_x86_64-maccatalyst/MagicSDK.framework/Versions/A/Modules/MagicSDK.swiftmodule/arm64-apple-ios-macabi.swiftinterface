@@ -1,11 +1,10 @@
 // swift-interface-format-version: 1.0
-// swift-compiler-version: Apple Swift version 5.5.1 (swiftlang-1300.0.31.4 clang-1300.0.29.6)
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
 // swift-module-flags: -target arm64-apple-ios13.1-macabi -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MagicSDK
 import Foundation
 @_exported import MagicSDK
 import MagicSDK_Web3
 import PromiseKit
-import Rollbar
 import Swift
 import UIKit
 import WebKit
@@ -287,7 +286,6 @@ extension MagicSDK_Web3.Web3Response {
 }
 public func generateRandomId() -> Swift.Int
 public func btoa(jsonString: Swift.String) -> Swift.String
-public func handleRollbarError(_ error: Swift.Error, extraData: Swift.String = "", log: Swift.Bool = true)
 @_hasMissingDesignatedInitializers public class RpcProvider : MagicSDK.NetworkClient, MagicSDK_Web3.Web3Provider {
   public enum ProviderError : Swift.Error {
     case encodingFailed(Swift.Error?)

@@ -34,7 +34,6 @@ TODO: Add long description of the pod here.
   s.dependency 'MagicSDK-Web3/ContractABI', '~> 1.0'
   s.dependency 'MagicSDK-Web3/PromiseKit', '~> 1.0'
   s.dependency 'PromiseKit/CorePromise', '~> 6.13'
-  s.dependency 'Rollbar', '1.12.14'
 
   s.pod_target_xcconfig = {
       'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
