@@ -1,3 +1,6 @@
+This repo has been archived, please refer to our new open source [Repo](https://github.com/magiclabs/magic-ios)
+---
+
 # MagicSDK
 
 [![CI Status](https://img.shields.io/travis/Ethella/MagicSDK.svg?style=flat)](https://travis-ci.org/Ethella/MagicSDK)
